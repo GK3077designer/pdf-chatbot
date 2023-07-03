@@ -22,8 +22,16 @@ export default function Home() {
       body: formData,
     });
 
-    const body = await response.json();
-    console.log(body)
+    if (!response.ok) {
+      // Handle error response
+    }
+    
+    let body;
+    try {
+      body = await response.json();
+    } catch (error) {
+      console.log(error);// Handle JSON parsing error
+    }
 
     if (body.success) {
       alert("Data added successfully");

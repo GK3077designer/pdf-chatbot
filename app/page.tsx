@@ -23,7 +23,7 @@ export default function Home() {
     });
 
     if (!response.ok) {
-      // Handle error response
+      throw new Error("Request failed with status: " + response.status);
     }
     
     let body;
